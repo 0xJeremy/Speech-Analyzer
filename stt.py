@@ -4,6 +4,12 @@ from google.cloud import speech
 from google.cloud.speech import enums
 from google.cloud.speech import types
 
+################################################
+# Transcribe File
+# 	Inputs: file path to audio file
+#	Outputs: Transcribed file in JSON format
+################################################
+
 def transcribe_file(speech_file):
 	client = speech.SpeechClient()
 
@@ -18,7 +24,8 @@ def transcribe_file(speech_file):
 
 	response = client.recognize(config, audio)
 
-	print(response)
-	
-	for result in response.results:
-		print(u'Transcript: {}'.format(result.alternatives[0].transcript))
+	# print(response)
+
+	# for result in response.results:
+		# print(u'Transcript: {}'.format(result.alternatives[0].transcript))
+	return response
